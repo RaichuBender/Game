@@ -19,9 +19,9 @@ sprite_t *CreateSprite(void)
 	sp = malloc(sizeof(sprite_t));
 	memset(sp, 0, sizeof(sprite_t));
 
-	sp->Make = SpriteMake;
-	sp->Tick = SpriteTick;
-	sp->Kill = SpriteKill;
+	sp->Base.Make = SpriteMake;
+	sp->Base.Tick = SpriteTick;
+	sp->Base.Kill = SpriteKill;
 
 	return sp;
 }
@@ -30,14 +30,14 @@ void SpriteMake(sprite_t *sp)
 {
 	printf("%x::%s\n", sp, "SpriteMake");
 
-	sp->bAlive = true;
+	sp->Base.bAlive = true;
 }
 
 void SpriteTick(sprite_t *sp)
 {
 	printf("%x::%s\n", sp, "SpriteTick");
 
-	sp->bAlive = false;
+	sp->Base.bAlive = false;
 }
 
 void SpriteKill(sprite_t *sp)

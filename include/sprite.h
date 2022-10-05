@@ -17,18 +17,25 @@
 
 typedef void (*spfunc)(union USPRITE *sp);
 
-union SPRITE
-union SPRITE
+/*******************************************************************************************************************************
+ *   @brief		Object -> Sprite
+ *
+ ******************************************************************************************************************************/
+typedef union USPRITE sprite_t;
+
 struct SPRITE
 {
-	struct OBJECT Super;
-	struct
-	{
-		object_t Base;
+	/// @brief	To be called right after construction, but before use
 	spfunc	Make;
+	
+	/// @brief	Should be called every program tick (/frame?)
 	spfunc	Tick;
+	
+	/// @brief	To be called after use. Frees every child member buffers
 	spfunc	Kill;
 
+
+	/// @brief	Object is active within the currently running program
 	bool	bAlive;
 
 
