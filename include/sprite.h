@@ -15,29 +15,42 @@
 
 #include "object.h"
 
+typedef void (*spfunc)(union USPRITE *sp);
+
 union SPRITE
+union SPRITE
+struct SPRITE
 {
 	struct OBJECT Super;
 	struct
 	{
 		object_t Base;
+	spfunc	Make;
+	spfunc	Tick;
+	spfunc	Kill;
 
-		struct
-		{
-			int x;
-			int y;
-		} position;
-		enum
-		{
-			DIR_UP,
-			DIR_DOWN,
-			DIR_LEFT,
-			DIR_RIGHT
-		} direction;
-	};
+	bool	bAlive;
+
+
+	struct
+	{
+		int x;
+		int y;
+	} position;
+	enum
+	{
+		DIR_UP,
+		DIR_DOWN,
+		DIR_LEFT,
+		DIR_RIGHT
+	} direction;
 };
 
-typedef union SPRITE sprite_t;
+union USPRITE
+{
+	struct OBJECT Super;
+	struct SPRITE;
+};
 
 void SpriteMake(sprite_t *sp);
 void SpriteTick(sprite_t *sp);

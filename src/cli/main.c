@@ -19,9 +19,9 @@ int main(int argc, char *argv[], char *env[])
 	printf("Hello, World!\n");
 	sprite_t *sprite = CreateSprite();
 
-	sprite->Base.Make(sprite);
-	sprite->Base.Tick(sprite);
-	sprite->Base.Kill(sprite);
+	sprite->Make(sprite);
+	sprite->Tick(sprite);
+	sprite->Kill(sprite);
 
 	return 0;
 }

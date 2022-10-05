@@ -17,16 +17,26 @@
 
 typedef void (*ofunc)(struct OBJECT *ob);
 
+/*******************************************************************************************************************************
+ *   @brief		Object
+ *
+ ******************************************************************************************************************************/
+typedef struct OBJECT object_t;
+
 struct OBJECT
 {
+	/// @brief	To be called right after construction, but before use
 	ofunc	Make;
+
+	/// @brief	Should be called every program tick (/frame?)
 	ofunc	Tick;
+
+	/// @brief	To be called after use. Frees every child member buffers
 	ofunc	Kill;
 
+	/// @brief	Object is active within the currently running program
 	bool	bAlive;
 };
-
-typedef struct OBJECT object_t;
 
 object_t *CreateObject(void);
 
