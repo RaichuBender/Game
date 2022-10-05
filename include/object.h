@@ -1,6 +1,6 @@
 /*******************************************************************************************************************************
  *
- *   @file		object.h
+ *   @file		Object.h
  *   @brief		
  *
  *   @date		2022/10/03
@@ -15,17 +15,19 @@
 
 #include "commondefs.h"
 
+typedef void (*ofunc)(struct OBJECT *ob);
+
 struct OBJECT
 {
-	union
-	{
-		int		__INT;
-		char	__STRING [64];
-	};
+	ofunc	Make;
+	ofunc	Tick;
+	ofunc	Kill;
+
+	bool	bAlive;
 };
 
 typedef struct OBJECT object_t;
 
-object_t *NEW_OBJECT(void);
+object_t *CreateObject(void);
 
 #endif /* OBJECT_H */

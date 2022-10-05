@@ -1,6 +1,6 @@
-CC	= gcc
-CXX	:= g++
-LD	:= ld
+# CC	= clang
+# CXX	:= clang++
+# LD	:= ld.lld
 
 #	| release	| debug		|
 TARGET			:=	debug

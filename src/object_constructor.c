@@ -14,7 +14,7 @@
 #include "object.h"
 
 
-object_t *NEW_OBJECT(void)
+object_t *CreateObject(void)
 {
 	object_t *ob = malloc(sizeof(struct OBJECT));
 	if (ob != NULL)

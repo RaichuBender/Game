@@ -11,13 +11,17 @@
  *
  ******************************************************************************************************************************/
 #include "commondefs.h"
-#include "object.h"
+#include "sprite.h"
 
 
 int main(int argc, char *argv[], char *env[])
 {
 	printf("Hello, World!\n");
-	object_t *ptr_new_object = NEW_OBJECT();
+	sprite_t *sprite = CreateSprite();
+
+	sprite->Base.Make(sprite);
+	sprite->Base.Tick(sprite);
+	sprite->Base.Kill(sprite);
 
 	return 0;
 }
